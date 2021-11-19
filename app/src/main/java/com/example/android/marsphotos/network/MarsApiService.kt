@@ -17,7 +17,7 @@ interface MarsApiService {
     //Le indicamos que realizara una solicitud Get al endpoint photos
     @GET("photos")
     //Obtenemso el String de respuesta
-    fun getPhotos() {
+    suspend fun getPhotos() {
 
     }
 
