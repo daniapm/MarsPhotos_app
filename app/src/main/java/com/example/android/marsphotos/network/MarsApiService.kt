@@ -9,12 +9,16 @@ import retrofit2.http.GET
 private const val BASE_URL = "https://android-kotlin-fun-mars-server.appspot.com"
 
 //creamos el objeto Moshi
+//Moshi es una librería para parsear JSON en objetos Java o Kotlin
 private val moshi = Moshi.Builder()
-        //convertimos la respuesta json a objetos Kotlin con Moshi
+    //convertimos la respuesta json a objetos Kotlin con Moshi
     .add(KotlinJsonAdapterFactory())
     .build()
 
+//usamos retrofit para consumir la appi
 private val retrofit = Retrofit.Builder()
+     //addConverterFactory se utiliza para serianlizar y deserializar objetos
+     //Usamos MoshiConverterFactory Cree una instancia con moshi para la conversión
     .addConverterFactory(MoshiConverterFactory.create(moshi))
     .baseUrl(BASE_URL)
     .build()
